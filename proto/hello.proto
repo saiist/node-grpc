@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package hello;
+
+// サービス定義
+service Greeter {
+  // 単純なRPC
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  
+  // サーバーストリーミングRPC
+  rpc SayHellosStream (HelloRequest) returns (stream HelloReply) {}
+  
+  // クライアントストリーミングRPC
+  rpc SayHelloClientStream (stream HelloRequest) returns (HelloReply) {}
+  
+  // 双方向ストリーミングRPC
+  rpc SayHelloBidirectional (stream HelloRequest) returns (stream HelloReply) {}
+}
+
+// リクエストメッセージ
+message HelloRequest {
+  string name = 1;
+}
+
+// レスポンスメッセージ
+message HelloReply {
+  string message = 1;
+  int32 timestamp = 2;
+}

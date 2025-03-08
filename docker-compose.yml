@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  # gRPCサーバー
+  grpc-server:
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+    ports:
+      - "50051:50051"
+    networks:
+      - grpc-network
+    environment:
+      - HOST=0.0.0.0
+      - PORT=50051
+
+  # gRPCクライアント
+  grpc-client:
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+    depends_on:
+      - grpc-server
+    networks:
+      - grpc-network
+    environment:
+      - SERVER_HOST=grpc-server
+      - SERVER_PORT=50051
+
+networks:
+  grpc-network:
+    driver: bridge
