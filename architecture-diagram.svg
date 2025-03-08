@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <!-- 背景色 -->
+  <rect width="800" height="500" fill="#f5f5f5" rx="10" ry="10"/>
+  
+  <!-- タイトル -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">gRPC + Docker + Node.js アーキテクチャ</text>
+  
+  <!-- Docker Compose 環境 -->
+  <rect x="50" y="70" width="700" height="390" fill="#e6f7ff" stroke="#1890ff" stroke-width="2" stroke-dasharray="5,5" rx="10" ry="10"/>
+  <text x="400" y="90" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1890ff">Docker Compose 環境</text>
+  
+  <!-- クライアントコンテナ -->
+  <rect x="100" y="120" width="250" height="290" fill="#ffffff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+  <text x="225" y="145" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">gRPC Client (Node.js)</text>
+  
+  <!-- クライアントの内部コンポーネント -->
+  <rect x="120" y="160" width="210" height="230" fill="#f0f0f0" stroke="#d9d9d9" stroke-width="1" rx="3" ry="3"/>
+  <rect x="140" y="180" width="170" height="40" fill="#e6f7ff" stroke="#1890ff" stroke-width="1" rx="3" ry="3"/>
+  <text x="225" y="205" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">gRPC Client Stub</text>
+  
+  <rect x="140" y="230" width="170" height="40" fill="#e6f7ff" stroke="#1890ff" stroke-width="1" rx="3" ry="3"/>
+  <text x="225" y="255" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Unary RPC</text>
+  
+  <rect x="140" y="280" width="170" height="40" fill="#e6f7ff" stroke="#1890ff" stroke-width="1" rx="3" ry="3"/>
+  <text x="225" y="305" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Server Streaming</text>
+  
+  <rect x="140" y="330" width="170" height="40" fill="#e6f7ff" stroke="#1890ff" stroke-width="1" rx="3" ry="3"/>
+  <text x="225" y="355" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Client Streaming</text>
+  
+  <!-- サーバーコンテナ -->
+  <rect x="450" y="120" width="250" height="290" fill="#ffffff" stroke="#333" stroke-width="2" rx="5" ry="5"/>
+  <text x="575" y="145" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">gRPC Server (Node.js)</text>
+  
+  <!-- サーバーの内部コンポーネント -->
+  <rect x="470" y="160" width="210" height="230" fill="#f0f0f0" stroke="#d9d9d9" stroke-width="1" rx="3" ry="3"/>
+  <rect x="490" y="180" width="170" height="40" fill="#f6ffed" stroke="#52c41a" stroke-width="1" rx="3" ry="3"/>
+  <text x="575" y="205" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">gRPC Server</text>
+  
+  <rect x="490" y="230" width="170" height="40" fill="#f6ffed" stroke="#52c41a" stroke-width="1" rx="3" ry="3"/>
+  <text x="575" y="255" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Greeter Service</text>
+  
+  <rect x="490" y="280" width="170" height="90" fill="#f6ffed" stroke="#52c41a" stroke-width="1" rx="3" ry="3"/>
+  <text x="575" y="305" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">RPC Implementations</text>
+  <text x="575" y="325" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">sayHello</text>
+  <text x="575" y="345" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">sayHellosStream</text>
+  <text x="575" y="365" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">sayHelloBidirectional</text>
+  
+  <!-- Proto共有 -->
+  <rect x="350" y="400" width="100" height="50" fill="#fff7e6" stroke="#fa8c16" stroke-width="1" rx="3" ry="3"/>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#fa8c16">hello.proto</text>
+  
+  <!-- 接続 -->
+  <path d="M350 245 L450 245" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M350 305 L450 305" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M450 335 L350 335" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <path d="M225 400 L350 425" stroke="#fa8c16" stroke-width="1" stroke-dasharray="3,3"/>
+  <path d="M575 400 L450 425" stroke="#fa8c16" stroke-width="1" stroke-dasharray="3,3"/>
+  
+  <!-- 矢印マーカー -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
+        markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- コメント -->
+  <text x="400" y="230" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Unary</text>
+  <text x="400" y="290" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Server Stream</text>
+  <text x="400" y="350" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Client Stream</text>
+  
+  <!-- ポート情報 -->
+  <text x="400" y="270" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Port: 50051</text>
+</svg>
